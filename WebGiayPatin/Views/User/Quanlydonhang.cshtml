@@ -1,0 +1,125 @@
+﻿@model IEnumerable<WebGiayPatin.ServiceReferenceUser.HoaDonBan>
+@{
+    ViewBag.Title = "Quản Lý Đơn Hàng | GIAYPATIN";
+    Layout = "~/Views/Shared/Default.cshtml";
+}
+
+
+@if (TempData["thongbao"] == "thanhcong")
+{
+    <script>
+        alert("Hủy đơn hàng thành công !!!...");
+    </script>
+}
+@if (TempData["thongbao"] == "thatbai")
+{
+    <script>
+        alert("Hủy đơn hàng thất bại !!!...");
+    </script>
+}
+<script>
+    function Ktra(e) {
+        if (document.timkiemhoadon.ngaytu.value > document.timkiemhoadon.ngayden.value && document.timkiemhoadon.ngayden.value != "")
+        {
+            alert("Ngày từ phải nhỏ hơn ngày đến !!!...");
+            return false;
+        }
+        return true;
+    }
+    function Nhapso(e) {
+        if ((e.charCode >= 48 && e.charCode <= 58) ||
+            (e.charCode == 0))
+            return true;
+        return false;
+    }
+    function Ktrasoluong() {
+        var ktsl = document.getElementById("idsoluong");
+        if (ktsl.value == null || ktsl.value == "0" || ktsl.value == "") {
+            ktsl.value = "1";
+        }
+    }
+    function ktHuyDH(masp) {
+        if (confirm('Bạn có chắc hủy đơn hàng không?')) {
+            document.location = '/User/Huydonhang?mahoadon=' + masp;
+        }
+    }
+</script>
+
+<p class="lead">Quản lý đơn hàng</p>
+@{int i = 0;}
+
+<div class="thumbnail col-md-12">
+    <p class="col-md-12"></p>
+    <form class="form-horizontal col-md-12" action="" name="timkiemhoadon" role="form">
+        <div class="form-group">
+            <label for="ngaytu" class="col-sm-2 control-label">Ngày đặt từ:</label>
+            <div class="col-sm-3">
+                <input type="date" class="form-control" id="ngaytu" value="@Request["ngaytu"]" name="ngaytu">
+            </div>
+            <label for="ngayden" class="col-sm-1 control-label">đến:</label>
+            <div class="col-sm-3">
+                <input type="date" class="form-control" id="ngayden" value="@Request["ngayden"]" name="ngayden">
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" onclick="return Ktra();" class="btn btn-primary">Tìm kiếm</button>
+            </div>
+        </div>
+    </form>
+    @if (Model.Count() > 0)
+    {
+        <div class="col-sm-12 text-right">
+            <p>Đơn vị: VNĐ</p>
+        </div>
+        <div class="table-responsive col-sm-12">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr class="text-center">
+                        <th>STT</th>
+                        <th>Mã hóa đơn</th>
+                        <th>Ngày đặt</th>
+                        <th>Ngày giao</th>
+                        <th>Tình trạng</th>
+                        <th>Tổng tiền</th>
+                        <th>Cập nhật</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var dh in Model)
+                    {
+                        i = i + 1;
+                        <tr>
+                            <td>@i</td>
+                            <td >@dh.MaHoaDon</td>
+                            <td>@dh.NgayDatHang.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                @{
+                                    string ngaydat = "";
+                                    DateTime? dateOrNull = dh.NgayGiaoHang;
+                                    if (dateOrNull != null)
+                                    {
+                                        DateTime ngay = dateOrNull.Value;
+                                        ngaydat = ngay.ToString("dd/MM/yyyy");
+                                    }
+                                }
+                                @ngaydat
+                            </td>
+                            <td>@dh.TinhTrang</td>
+                            <td>@dh.TongTien</td>
+                            <td width="80px">
+                                <a href="/User/Chitietdonhang?mahoadon=@dh.MaHoaDon"><span class="glyphicon glyphicon-search"></span></a>
+                                @if (dh.TinhTrang == "Đang xử lý")
+                                { 
+                                    <a onclick="ktHuyDH('@dh.MaHoaDon');" href="javascript:void(0)"><span class="btn-danger glyphicon glyphicon-remove"></span></a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p>Không có hóa đơn nào, vui lòng đặt hàng để có hóa đơn!!!...</p>
+    }
+</div>

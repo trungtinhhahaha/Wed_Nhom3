@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserWed" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2445/UserWed.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2445/UserWed.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2445/UserWed.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WedService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserWed_FindAllNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_DangNhapNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:DangNhapNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_DangNhapNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DangNhapNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_InsertNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_InsertNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_UpdateThongTinDangNhap_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateThongTinDangNhap" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_UpdateThongTinDangNhap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateThongTinDangNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_UpdateThongTinCaNhan_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateThongTinCaNhan" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_UpdateThongTinCaNhan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateThongTinCaNhanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPMoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPMoi" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPMoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPMoiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPNoiBat_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPNoiBat" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPNoiBat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPNoiBatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPPhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPPhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPPhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPPhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPKhuyenMai_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPKhuyenMai" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllSPKhuyenMai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSPKhuyenMaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_AddSoLuongSP_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSoLuongSP" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_AddSoLuongSP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSoLuongSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_DeleteSoLuongSP_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSoLuongSP" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_DeleteSoLuongSP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSoLuongSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllPhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllPhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllPhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllPhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindPhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindPhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindAllHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindHoaDonBanTheoNgay_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonBanTheoNgay" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindHoaDonBanTheoNgay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonBanTheoNgayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_InsertHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_InsertHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_HuyHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:HuyHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_HuyHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HuyHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindChiTietHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindChiTietHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindChiTietHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindChiTietHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_InsertChiTietHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChiTietHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_InsertChiTietHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChiTietHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindTimKiemCB_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTimKiemCB" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindTimKiemCB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTimKiemCBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindTimKiemNC_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindTimKiemNC" />
+  </wsdl:message>
+  <wsdl:message name="IUserWed_FindTimKiemNC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindTimKiemNCResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserWed">
+    <wsdl:operation name="FindAllNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllNguoiDung" message="tns:IUserWed_FindAllNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllNguoiDungResponse" message="tns:IUserWed_FindAllNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindNguoiDung" message="tns:IUserWed_FindNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindNguoiDungResponse" message="tns:IUserWed_FindNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DangNhapNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/DangNhapNguoiDung" message="tns:IUserWed_DangNhapNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/DangNhapNguoiDungResponse" message="tns:IUserWed_DangNhapNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/InsertNguoiDung" message="tns:IUserWed_InsertNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/InsertNguoiDungResponse" message="tns:IUserWed_InsertNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateThongTinDangNhap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/UpdateThongTinDangNhap" message="tns:IUserWed_UpdateThongTinDangNhap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/UpdateThongTinDangNhapResponse" message="tns:IUserWed_UpdateThongTinDangNhap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateThongTinCaNhan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/UpdateThongTinCaNhan" message="tns:IUserWed_UpdateThongTinCaNhan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/UpdateThongTinCaNhanResponse" message="tns:IUserWed_UpdateThongTinCaNhan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllSanPham" message="tns:IUserWed_FindAllSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllSanPhamResponse" message="tns:IUserWed_FindAllSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPMoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllSPMoi" message="tns:IUserWed_FindAllSPMoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllSPMoiResponse" message="tns:IUserWed_FindAllSPMoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPNoiBat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllSPNoiBat" message="tns:IUserWed_FindAllSPNoiBat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllSPNoiBatResponse" message="tns:IUserWed_FindAllSPNoiBat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPPhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllSPPhanLoai" message="tns:IUserWed_FindAllSPPhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllSPPhanLoaiResponse" message="tns:IUserWed_FindAllSPPhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPKhuyenMai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllSPKhuyenMai" message="tns:IUserWed_FindAllSPKhuyenMai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllSPKhuyenMaiResponse" message="tns:IUserWed_FindAllSPKhuyenMai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindSanPham" message="tns:IUserWed_FindSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindSanPhamResponse" message="tns:IUserWed_FindSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSoLuongSP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/AddSoLuongSP" message="tns:IUserWed_AddSoLuongSP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/AddSoLuongSPResponse" message="tns:IUserWed_AddSoLuongSP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSoLuongSP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/DeleteSoLuongSP" message="tns:IUserWed_DeleteSoLuongSP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/DeleteSoLuongSPResponse" message="tns:IUserWed_DeleteSoLuongSP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllPhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllPhanLoai" message="tns:IUserWed_FindAllPhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllPhanLoaiResponse" message="tns:IUserWed_FindAllPhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindPhanLoai" message="tns:IUserWed_FindPhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindPhanLoaiResponse" message="tns:IUserWed_FindPhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindAllHoaDonBan" message="tns:IUserWed_FindAllHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindAllHoaDonBanResponse" message="tns:IUserWed_FindAllHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindHoaDonBan" message="tns:IUserWed_FindHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindHoaDonBanResponse" message="tns:IUserWed_FindHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonBanTheoNgay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindHoaDonBanTheoNgay" message="tns:IUserWed_FindHoaDonBanTheoNgay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindHoaDonBanTheoNgayResponse" message="tns:IUserWed_FindHoaDonBanTheoNgay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/InsertHoaDonBan" message="tns:IUserWed_InsertHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/InsertHoaDonBanResponse" message="tns:IUserWed_InsertHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HuyHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/HuyHoaDonBan" message="tns:IUserWed_HuyHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/HuyHoaDonBanResponse" message="tns:IUserWed_HuyHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindChiTietHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindChiTietHoaDonBan" message="tns:IUserWed_FindChiTietHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindChiTietHoaDonBanResponse" message="tns:IUserWed_FindChiTietHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertChiTietHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/InsertChiTietHoaDonBan" message="tns:IUserWed_InsertChiTietHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/InsertChiTietHoaDonBanResponse" message="tns:IUserWed_InsertChiTietHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTimKiemCB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindTimKiemCB" message="tns:IUserWed_FindTimKiemCB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindTimKiemCBResponse" message="tns:IUserWed_FindTimKiemCB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTimKiemNC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserWed/FindTimKiemNC" message="tns:IUserWed_FindTimKiemNC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserWed/FindTimKiemNCResponse" message="tns:IUserWed_FindTimKiemNC_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserWed" type="tns:IUserWed">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindAllNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DangNhapNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/DangNhapNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/InsertNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateThongTinDangNhap">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/UpdateThongTinDangNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateThongTinCaNhan">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/UpdateThongTinCaNhan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSanPham">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPMoi">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllSPMoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPNoiBat">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllSPNoiBat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPPhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllSPPhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSPKhuyenMai">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllSPKhuyenMai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSanPham">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSoLuongSP">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/AddSoLuongSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSoLuongSP">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/DeleteSoLuongSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllPhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllPhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindPhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindAllHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonBanTheoNgay">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindHoaDonBanTheoNgay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/InsertHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HuyHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/HuyHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindChiTietHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindChiTietHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertChiTietHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/InsertChiTietHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTimKiemCB">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindTimKiemCB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTimKiemNC">
+      <soap:operation soapAction="http://tempuri.org/IUserWed/FindTimKiemNC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserWed">
+    <wsdl:port name="BasicHttpBinding_IUserWed" binding="tns:BasicHttpBinding_IUserWed">
+      <soap:address location="http://localhost:2445/UserWed.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

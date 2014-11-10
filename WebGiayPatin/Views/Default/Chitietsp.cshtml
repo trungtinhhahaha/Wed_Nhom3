@@ -1,0 +1,103 @@
+﻿@model WebGiayPatin.ServiceReferenceUser.SanPham
+
+@{
+    ViewBag.Title = "Chi Tiết Sản Phẩm | GIAYPATIN";
+    Layout = "~/Views/Shared/Default.cshtml";
+}
+
+<p class="lead">Chi tiết sản phẩm @ViewBag.tenloai</p>
+<p class="col-md-6 text-center">
+    @if (Model.HinhAnh != null)
+    {
+        string imageBase64 = Convert.ToBase64String(Model.HinhAnh);
+        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+        <img src="@imageSrc" style=" width:200px; height: 200px " />
+    }
+    else
+    {
+        <img src="http://placehold.it/200x200" style=" width:200px; height: 200px " alt="">
+    }
+</p>
+<p class="col-md-6">
+    <table class="content_chitiet">
+        <tr>
+            <td><b>Tên Sản Phẩm:</b></td>
+            <td>@Model.TenSP</td>
+        </tr>
+        <tr>
+            <td><b>Bảo Hàng:</b></td>
+            <td>@Model.BaoHanh Tháng</td>
+        </tr>
+        <tr>
+            <td><b>Số Lượng:</b></td>
+            <td>
+                @if (@Model.SoLuong == 0)
+                {
+                    <span style="color: red">Hết hàng</span>
+                }
+                else
+                {
+                    @Model.SoLuong
+                }
+            </td>
+        </tr>
+        <tr>
+            <td><b>Kích cở:</b></td>
+            <td>@Model.KichCo</td>
+        </tr>
+        <tr>
+            <td><b>Loại Màu:</b></td>
+            <td>@Model.LoaiMau</td>
+        </tr>
+        <tr>
+            <td>
+                @if (@Model.GiaGiam == 0)
+                {
+                <div style="height: 20px"></div>
+                <div class="content_sanpham_gia">
+                    <b>Giá:</b>
+                </div>
+                }
+                else
+                {
+                    <div class="content_sanpham_gia_cu">
+                        <b>Giá Cũ:</b>
+                    </div>
+                    <div class="content_sanpham_gia">
+                        <b>Giá Khuyến Mãi:</b>
+                    </div>
+                }
+            </td>
+            <td>
+                @if (@Model.GiaGiam == 0)
+                {
+                    <div style="height: 20px"></div>
+                    <div class="content_sanpham_gia">
+                        @string.Format("{0:0,0 VNĐ}", @Model.Gia)
+                    </div>
+                }
+                else
+                {
+                    <div class="content_sanpham_gia_cu">
+                        @string.Format("{0:0,0 VNĐ}", @Model.Gia)
+                    </div>
+                    <div class="content_sanpham_gia">
+                        @string.Format("{0:0,0 VNĐ}", @Model.Gia - @Model.GiaGiam)
+                    </div>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @if (Model.SoLuong == 0)
+                {
+                    <input type="button" class="btn btn-default" value="Hết Hàng">
+                }
+                else
+                {
+                    <a href="/Giohang/Themgiohang?masp=@Model.MaSP"><input type="button" class="btn btn-danger" value="Mua ngay"></a>
+                }
+            </td><td></td>
+        </tr>
+    </table>
+</p>

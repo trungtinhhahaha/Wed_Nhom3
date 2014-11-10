@@ -1,0 +1,74 @@
+﻿@model PagedList.IPagedList<WebGiayPatin.ServiceReferenceUser.SanPham>
+@using PagedList;
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Sản Phẩm | GiAYPATIN";
+    Layout = "~/Views/Shared/Default.cshtml";
+}
+
+<p class="lead">Sản phẩm </p>
+<div class="thumbnail col-md-12">
+    @if (Model.Count() < 1)
+    {
+        <p class="col-md-12">Hiện tại không có sản phẩm nào !!!...</p>
+    }
+    @foreach (var sp in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                @if (sp.HinhAnh != null)
+                {
+                    string imageBase64 = Convert.ToBase64String(sp.HinhAnh);
+                    string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                    <a href="/Default/Chitietsp?masp=@sp.MaSP">
+                    <img src="@imageSrc" style=" width:200px; height: 200px " /></a>
+                }
+                else
+                {
+                    <a href="/Default/Chitietsp?masp=@sp.MaSP">
+                    <img src="http://placehold.it/200x200" style=" width:200px; height: 200px " alt=""></a>
+                }
+                <div class="caption-full">
+                    <h4 class="content_sanpham_ten">
+                        @sp.TenSP
+                    </h4>
+                    @if (sp.GiaGiam == 0)
+                    {
+                        <div style="height: 20px"></div>
+                        <div class="content_sanpham_gia">
+                            Giá: @string.Format("{0:0,0 VNĐ}", @sp.Gia)
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="content_sanpham_gia_cu">
+                            Giá cũ: @string.Format("{0:0,0 VNĐ}", @sp.Gia)
+                        </div>
+                        <div class="content_sanpham_gia">
+                            Giá KM: @string.Format("{0:0,0 VNĐ}", @sp.Gia - @sp.GiaGiam)
+                        </div>
+                    }
+                    <a href="/Default/Chitietsp?masp=@sp.MaSP"><input type="button" class="btn btn-primary pull-right" value="Chi tiết"></a>
+                    @if (sp.SoLuong == 0)
+                    {
+                        <input type="button" class="btn btn-default" value="Hết hàng">
+                    }
+                    else
+                    {
+                        <a href="/Giohang/Themgiohang?masp=@sp.MaSP"><input type="button" class="btn btn-danger" value="Mua ngay"></a>   
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    @if ((Model.Count() > 5) || ViewBag.page1 > 1)
+    {
+        <div style="margin:auto" class="text-center col-md-12">
+            @Html.PagedListPager(Model, page => Url.Action("PLSanPham", new { phanloai = ViewBag.phanloai, page = page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        </div>
+    }
+</div>
+

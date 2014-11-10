@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebGiayPatin.ServiceReferenceUser.PhanLoai>
+
+@{
+    ViewBag.Title = "CbbDanhmuc";
+}
+
+<label for="sel1">Danh mục:</label>
+<select name="phanloai" class="form-control" id="sel1">
+    <option value="-1">---Chọn Danh Mục---</option>
+    @foreach (var pl in Model)
+    {
+        if(@ViewBag.phanloai == pl.MaLoai)
+        {
+            <option value="@pl.MaLoai" selected>@pl.TenLoai</option>
+        }
+        else
+        { 
+            <option value="@pl.MaLoai">@pl.TenLoai</option>
+        }
+    }
+</select>

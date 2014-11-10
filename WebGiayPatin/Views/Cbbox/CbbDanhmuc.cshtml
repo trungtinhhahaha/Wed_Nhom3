@@ -1,0 +1,10 @@
+﻿@model IEnumerable<WebGiayPatin.ServiceReferenceUser.PhanLoai>
+
+@{
+    ViewBag.Title = "CbbDanhmuc";
+}
+
+@foreach (var pl in Model)
+{
+    <a href="/Default/PLSanPham?phanloai=@pl.MaLoai" class="list-group-item">@pl.TenLoai</a>
+}

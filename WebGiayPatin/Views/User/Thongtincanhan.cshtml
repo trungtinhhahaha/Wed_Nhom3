@@ -1,0 +1,87 @@
+﻿@model WebGiayPatin.ServiceReferenceUser.NguoiDung
+@{
+    ViewBag.Title = "Thông Tin Cá Nhân | GIAYPATIN";
+    Layout = "~/Views/Shared/Default.cshtml";
+}
+
+<script>
+    function Ktra() {
+        if (document.dangky.matkhau.value != document.dangky.nhaplaimatkhau.value) {
+            alert("Nhập lại mật khẩu không trùng");
+            return false;
+        }
+        return true;
+    }
+    function Nhapso(e) {
+        if ((e.charCode >= 48 && e.charCode <= 58) ||
+            (e.charCode == 0))
+            return true;
+        return false;
+    }
+</script>
+<p class="lead">Thông Tin Cá Nhân</p>
+<div class="thumbnail col-md-12">
+    <form class="form-horizontal col-md-8 col-lg-offset-2" action="/User/Thongtincanhan1" name="dangky" role="form">
+        <div class="form-group">
+            <div class="form-group">
+                <label class="col-sm-10 control-label">Những thông tin có dấu (<span style="color: red">*</span>) là bắt buộc</label>
+            </div>
+            <label for="hoten" class="col-sm-4 control-label">Họ tên:</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="hoten" value="@Model.HoTen" name="hoten" placeholder="Họ và tên" required>
+            </div>
+            <label class="col-sm-1 control-label">(<span style="color: red">*</span>)</label>
+        </div>
+        <div class="form-group">
+            <label for="ngaysinh" class="col-sm-4 control-label">Ngày sinh:</label>
+            <div class="col-sm-7">
+                <input type="date" class="form-control" id="ngaysinh" value="@Model.NgaySinh.ToString("yyyy-MM-dd")" name="ngaysinh" required>
+            </div>
+            <label class="col-sm-1 control-label">(<span style="color: red">*</span>)</label>
+        </div>
+        <div class="form-group">
+            <label for="gioitinh" class="col-sm-4 control-label">Giới tính:</label>
+            <div class="col-sm-7">
+                @if(Model.GioiTinh == "Nam")
+                {
+                    <input style="width: 12px; height: 12px" type="radio" name="gioitinh" checked value="Nam" /><span>Nam</span>
+                    <input style="width: 12px; height: 12px;" type="radio" name="gioitinh" value="Nữ" /><span>Nữ</span>
+                }
+                else
+                {
+                    <input style="width: 12px; height: 12px" type="radio" name="gioitinh" value="Nam" /><span>Nam</span>
+                    <input style="width: 12px; height: 12px;" type="radio" name="gioitinh" checked value="Nữ" /><span>Nữ</span>
+                }
+                
+            </div>
+            <label class="col-sm-1 control-label">(<span style="color: red">*</span>)</label>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-4 control-label">Email:</label>
+            <div class="col-sm-7">
+                <input type="email" class="form-control" id="email" value="@Model.Email" placeholder="Email" name="email">
+            </div>
+            <label class="col-sm-1 control-label"></label>
+        </div>
+        <div class="form-group">
+            <label for="sdt" class="col-sm-4 control-label">Số điện thoại:</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="sdt" value="@Model.SDT" placeholder="Số điện thoại" onkeypress="return Nhapso(event);" name="sdt">
+            </div>
+            <label class="col-sm-1 control-label"></label>
+        </div>
+        <div class="form-group">
+            <label for="diachi" class="col-sm-4 control-label">Địa chỉ:</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="diachi" value="@Model.DiaChi" placeholder="Địa chỉ" name="diachi" required>
+            </div>
+            <label class="col-sm-1 control-label">(<span style="color: red">*</span>)</label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-7 text-right">
+                <button type="submit" onclick="return Ktra();" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+
+    </form>
+</div>

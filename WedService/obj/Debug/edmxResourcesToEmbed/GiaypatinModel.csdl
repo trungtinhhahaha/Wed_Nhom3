@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GIAYPATINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GIAYPATINEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTHoaDonBans" EntityType="GIAYPATINModel.CTHoaDonBan" />
+    <EntitySet Name="CTHoaDonNhaps" EntityType="GIAYPATINModel.CTHoaDonNhap" />
+    <EntitySet Name="HoaDonBans" EntityType="GIAYPATINModel.HoaDonBan" />
+    <EntitySet Name="HoaDonNhaps" EntityType="GIAYPATINModel.HoaDonNhap" />
+    <EntitySet Name="NguoiDungs" EntityType="GIAYPATINModel.NguoiDung" />
+    <EntitySet Name="PhanLoais" EntityType="GIAYPATINModel.PhanLoai" />
+    <EntitySet Name="SanPhams" EntityType="GIAYPATINModel.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="GIAYPATINModel.sysdiagram" />
+    <AssociationSet Name="FK_CTHoaDonBan_HoaDonBan" Association="GIAYPATINModel.FK_CTHoaDonBan_HoaDonBan">
+      <End Role="HoaDonBan" EntitySet="HoaDonBans" />
+      <End Role="CTHoaDonBan" EntitySet="CTHoaDonBans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHoaDonBan_SanPham" Association="GIAYPATINModel.FK_CTHoaDonBan_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="CTHoaDonBan" EntitySet="CTHoaDonBans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHoaDonNhap_HoaDonNhap" Association="GIAYPATINModel.FK_CTHoaDonNhap_HoaDonNhap">
+      <End Role="HoaDonNhap" EntitySet="HoaDonNhaps" />
+      <End Role="CTHoaDonNhap" EntitySet="CTHoaDonNhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHoaDonNhap_SanPham" Association="GIAYPATINModel.FK_CTHoaDonNhap_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="CTHoaDonNhap" EntitySet="CTHoaDonNhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDonBan_NguoiDung" Association="GIAYPATINModel.FK_HoaDonBan_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="HoaDonBan" EntitySet="HoaDonBans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDonNhap_NguoiDung" Association="GIAYPATINModel.FK_HoaDonNhap_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="HoaDonNhap" EntitySet="HoaDonNhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_PhanLoai" Association="GIAYPATINModel.FK_SanPham_PhanLoai">
+      <End Role="PhanLoai" EntitySet="PhanLoais" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CTHoaDonBan">
+    <Key>
+      <PropertyRef Name="MaCTHoaDon" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaCTHoaDon" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MaSP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="Gia" Type="Int32" Nullable="false" />
+    <Property Name="GiaGiam" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HoaDonBan" Relationship="GIAYPATINModel.FK_CTHoaDonBan_HoaDonBan" FromRole="CTHoaDonBan" ToRole="HoaDonBan" />
+    <NavigationProperty Name="SanPham" Relationship="GIAYPATINModel.FK_CTHoaDonBan_SanPham" FromRole="CTHoaDonBan" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="CTHoaDonNhap">
+    <Key>
+      <PropertyRef Name="MaCTHoaDon" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaCTHoaDon" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MaSP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="Gia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HoaDonNhap" Relationship="GIAYPATINModel.FK_CTHoaDonNhap_HoaDonNhap" FromRole="CTHoaDonNhap" ToRole="HoaDonNhap" />
+    <NavigationProperty Name="SanPham" Relationship="GIAYPATINModel.FK_CTHoaDonNhap_SanPham" FromRole="CTHoaDonNhap" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="HoaDonBan">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TenDangNhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TinhTrang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayDatHang" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayGiaoHang" Type="DateTime" Precision="0" />
+    <Property Name="TongTien" Type="Double" Nullable="false" />
+    <NavigationProperty Name="CTHoaDonBans" Relationship="GIAYPATINModel.FK_CTHoaDonBan_HoaDonBan" FromRole="HoaDonBan" ToRole="CTHoaDonBan" />
+    <NavigationProperty Name="NguoiDung" Relationship="GIAYPATINModel.FK_HoaDonBan_NguoiDung" FromRole="HoaDonBan" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="HoaDonNhap">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TenDangNhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <Property Name="TongTien" Type="Double" />
+    <NavigationProperty Name="CTHoaDonNhaps" Relationship="GIAYPATINModel.FK_CTHoaDonNhap_HoaDonNhap" FromRole="HoaDonNhap" ToRole="CTHoaDonNhap" />
+    <NavigationProperty Name="NguoiDung" Relationship="GIAYPATINModel.FK_HoaDonNhap_NguoiDung" FromRole="HoaDonNhap" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quyen" Type="Int32" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="GioiTinh" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HoaDonBans" Relationship="GIAYPATINModel.FK_HoaDonBan_NguoiDung" FromRole="NguoiDung" ToRole="HoaDonBan" />
+    <NavigationProperty Name="HoaDonNhaps" Relationship="GIAYPATINModel.FK_HoaDonNhap_NguoiDung" FromRole="NguoiDung" ToRole="HoaDonNhap" />
+  </EntityType>
+  <EntityType Name="PhanLoai">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TenLoai" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="GIAYPATINModel.FK_SanPham_PhanLoai" FromRole="PhanLoai" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BaoHanh" Type="Int32" Nullable="false" />
+    <Property Name="TinhTrang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiMau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KichCo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="Gia" Type="Int32" Nullable="false" />
+    <Property Name="GiaGiam" Type="Int32" Nullable="false" />
+    <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="CTHoaDonBans" Relationship="GIAYPATINModel.FK_CTHoaDonBan_SanPham" FromRole="SanPham" ToRole="CTHoaDonBan" />
+    <NavigationProperty Name="CTHoaDonNhaps" Relationship="GIAYPATINModel.FK_CTHoaDonNhap_SanPham" FromRole="SanPham" ToRole="CTHoaDonNhap" />
+    <NavigationProperty Name="PhanLoai" Relationship="GIAYPATINModel.FK_SanPham_PhanLoai" FromRole="SanPham" ToRole="PhanLoai" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_CTHoaDonBan_HoaDonBan">
+    <End Type="GIAYPATINModel.HoaDonBan" Role="HoaDonBan" Multiplicity="1" />
+    <End Type="GIAYPATINModel.CTHoaDonBan" Role="CTHoaDonBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDonBan">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="CTHoaDonBan">
+        <PropertyRef Name="MaCTHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHoaDonBan_SanPham">
+    <End Type="GIAYPATINModel.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="GIAYPATINModel.CTHoaDonBan" Role="CTHoaDonBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CTHoaDonBan">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHoaDonNhap_HoaDonNhap">
+    <End Type="GIAYPATINModel.HoaDonNhap" Role="HoaDonNhap" Multiplicity="1" />
+    <End Type="GIAYPATINModel.CTHoaDonNhap" Role="CTHoaDonNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDonNhap">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="CTHoaDonNhap">
+        <PropertyRef Name="MaCTHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHoaDonNhap_SanPham">
+    <End Type="GIAYPATINModel.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="GIAYPATINModel.CTHoaDonNhap" Role="CTHoaDonNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CTHoaDonNhap">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDonBan_NguoiDung">
+    <End Type="GIAYPATINModel.NguoiDung" Role="NguoiDung" Multiplicity="1" />
+    <End Type="GIAYPATINModel.HoaDonBan" Role="HoaDonBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="HoaDonBan">
+        <PropertyRef Name="TenDangNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDonNhap_NguoiDung">
+    <End Type="GIAYPATINModel.NguoiDung" Role="NguoiDung" Multiplicity="1" />
+    <End Type="GIAYPATINModel.HoaDonNhap" Role="HoaDonNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="HoaDonNhap">
+        <PropertyRef Name="TenDangNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_PhanLoai">
+    <End Type="GIAYPATINModel.PhanLoai" Role="PhanLoai" Multiplicity="0..1" />
+    <End Type="GIAYPATINModel.SanPham" Role="SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoai">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

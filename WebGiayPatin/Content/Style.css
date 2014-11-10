@@ -1,0 +1,42 @@
+﻿body {
+    padding: 0; 
+    margin: 0; 
+
+}.content_bottom {
+    background: url(images/bottom.png) repeat-x; 
+    font: bold 12px Verdana;
+}
+
+ .content_sanpham {
+    text-align: center;
+    font: bold 12px Verdana;
+}
+ .content_sanpham_img {
+    width: 170px;
+    height: 170px;
+    margin: auto;
+}
+.content_sanpham_ten {
+    color: blue;
+    padding-bottom: 10px;
+}
+.content_sanpham_gia {
+    color: red;
+    padding-bottom: 10px;
+}
+.content_sanpham_gia_cu {
+    text-decoration: line-through; 
+    color: #808080;
+}
+.content_chitiet td{ 
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+.content_timkiemnc td{ 
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.dangky td{ 
+    padding: 10px;
+}

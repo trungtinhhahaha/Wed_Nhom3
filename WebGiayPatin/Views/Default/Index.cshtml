@@ -1,0 +1,130 @@
+﻿@model PagedList.IPagedList<WebGiayPatin.ServiceReferenceUser.SanPham>
+@using PagedList;
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Trang Chủ | GIAYPATIN";
+    Layout = "~/Views/Shared/Default.cshtml";
+}
+
+@if(TempData["thongbao"] == "dathang")
+{
+    <script>alert("Đặt hàng thành công!!!...");</script>
+}
+<p class="lead">Sản phẩm mới</p>
+<div class="thumbnail col-md-12">
+    @if (Model.Count() < 1)
+    {
+        <p>Hiện tại không có sản phẩm nào !!!...</p>
+    }
+    @foreach (var spmoi in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                @if (spmoi.HinhAnh != null)
+                {
+                    string imageBase64 = Convert.ToBase64String(spmoi.HinhAnh);
+                    string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                    <a href="/Default/Chitietsp?masp=@spmoi.MaSP">
+                    <img src="@imageSrc" style=" width:200px; height: 200px " /></a>
+                }
+                else
+                {
+                    <a href="/Default/Chitietsp?masp=@spmoi.MaSP">
+                    <img src="http://placehold.it/200x200" style=" width:200px; height: 200px " alt=""></a>
+                }
+                <div class="caption-full">
+                    <h4 class="content_sanpham_ten">
+                        @spmoi.TenSP
+                    </h4>
+                    @if (spmoi.GiaGiam == 0)
+                    {
+                        <div style="height: 20px"></div>
+                        <div class="content_sanpham_gia">
+                            Giá: @string.Format("{0:0,0 VNĐ}", @spmoi.Gia)
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="content_sanpham_gia_cu">
+                            Giá cũ: @string.Format("{0:0,0 VNĐ}", @spmoi.Gia)
+                        </div>
+                        <div class="content_sanpham_gia">
+                            Giá KM: @string.Format("{0:0,0 VNĐ}", @spmoi.Gia - @spmoi.GiaGiam)
+                        </div>
+                    }
+                    <a href="/Default/Chitietsp?masp=@spmoi.MaSP"><input type="button" class="btn btn-primary pull-right" value="Chi tiết"></a>
+                    @if (spmoi.SoLuong == 0)
+                    {
+                        <input type="button" class="btn btn-default" value="Hết hàng">
+                    }
+                    else
+                    {
+                        <a href="/Giohang/Themgiohang?masp=@spmoi.MaSP"><input type="button" class="btn btn-danger" value="Mua ngay"></a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+    @if ((Model.Count() > 5) || ViewBag.page1 > 1)
+    {
+        <div style="margin:auto" class="text-center col-md-12">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        </div>
+    }
+
+    <p class="thumbnail col-md-12"></p>
+    <p class="lead col-md-12">Sản phẩm nổi bật</p>
+<div class="thumbnail col-md-12">
+    @foreach (var spnb in ViewBag.spnoibat)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                @if (spnb.HinhAnh != null)
+                {
+                    string imageBase64 = Convert.ToBase64String(spnb.HinhAnh);
+                    string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                    <a href="/Default/Chitietsp?masp=@spnb.MaSP">
+                    <img src="@imageSrc" style=" width:200px; height: 200px " /></a>
+                }
+                else
+                {
+                    <a href="/Default/Chitietsp?masp=@spnb.MaSP">
+                    <img src="http://placehold.it/200x200" style=" width:200px; height: 200px " alt=""></a>
+                }
+                <div class="caption-full">
+                    <h4 class="content_sanpham_ten">
+                        @spnb.TenSP
+                    </h4>
+                    @if (spnb.GiaGiam == 0)
+                    {
+                        <div style="height: 20px"></div>
+                        <div class="content_sanpham_gia">
+                            Giá: @string.Format("{0:0,0 VNĐ}", @spnb.Gia)
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="content_sanpham_gia_cu">
+                            Giá cũ: @string.Format("{0:0,0 VNĐ}", @spnb.Gia)
+                        </div>
+                        <div class="content_sanpham_gia">
+                            Giá KM: @string.Format("{0:0,0 VNĐ}", @spnb.Gia - @spnb.GiaGiam)
+                        </div>
+                    }
+                    <a href="/Default/Chitietsp?masp=@spnb.MaSP"><input type="button" class="btn btn-primary pull-right" value="Chi tiết"></a>
+                    @if (spnb.SoLuong == 0)
+                    {
+                        <input type="button" class="btn btn-default" value="Hết hàng">
+                    }
+                    else
+                    {
+                        <a href="/Giohang/Themgiohang?masp=@spnb.MaSP"><input type="button" class="btn btn-danger" value="Mua ngay"></a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>

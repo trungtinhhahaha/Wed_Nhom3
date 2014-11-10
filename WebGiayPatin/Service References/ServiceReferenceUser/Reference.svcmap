@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ae0caf29-3b3c-46e1-bd35-84349615291e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2445/UserWed.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserWed.disco" MetadataType="Disco" ID="c907c785-19f5-4cc1-974b-c628fe833b5d" SourceId="1" SourceUrl="http://localhost:2445/UserWed.svc?disco" />
+    <MetadataFile FileName="UserWed.xsd" MetadataType="Schema" ID="58d7cc81-c2e3-4a1c-9737-94f17b50f385" SourceId="1" SourceUrl="http://localhost:2445/UserWed.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserWed1.xsd" MetadataType="Schema" ID="7f08c2b1-b3fb-47b6-9dfe-a6b6515bbbb1" SourceId="1" SourceUrl="http://localhost:2445/UserWed.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserWed.wsdl" MetadataType="Wsdl" ID="2489dc23-aeb8-44cf-b962-9e0aa3128d95" SourceId="1" SourceUrl="http://localhost:2445/UserWed.svc?wsdl" />
+    <MetadataFile FileName="UserWed2.xsd" MetadataType="Schema" ID="caccd445-7575-4da4-bbf6-1b930c6cd199" SourceId="1" SourceUrl="http://localhost:2445/UserWed.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

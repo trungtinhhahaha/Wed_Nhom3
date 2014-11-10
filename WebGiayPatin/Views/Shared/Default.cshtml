@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/css/shop-homepage.css" rel="stylesheet">
+
+    <title>@ViewBag.Title</title>
+    <script> // Chỉ cho nhập số
+        function Nhapso(e) {
+            if ((e.charCode >= 48 && e.charCode <= 58) ||
+                (e.charCode == 0))
+                return true;
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Default/Index">Trang Chủ</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/Default/Gioithieu">Giới Thiệu</a>
+                    </li>
+                    <li>
+                        <a href="/Default/Dichvu">Dịch Vụ</a>
+                    </li>
+                    <li>
+                        <a href="/Default/Khuyenmai">Khuyến Mãi</a>
+                    </li>
+                    @if (Session["Tendangnhap"] == null)
+                    { 
+                        <li>
+                            <a href="/User/Dangky">Đăng Ký</a>
+                        </li>
+                        <li>
+                            <a href="/User/Dangnhap">Đăng Nhập</a>
+                        </li>
+                    }
+                    else
+                    {
+                        string ten = Session["Tendangnhap"].ToString();
+                        if (Session["Tendangnhap"].ToString().Length > 10)
+                        {
+                            ten = ten.Substring(0, 10) + "...";
+                        }
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="@ten" style="color: blue">Xin Chào: @ten<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/User/Quanlytaikhoan">Quản lý tài khoản</a></li>
+                                <li><a href="/User/Quanlydonhang">Quản lý đơn hàng</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/User/Dangxuat">Thoát</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                <div class="pull-right">
+                    <div class="pull-left">
+                        <form class="navbar-form" action="/GioHang/Xemgiohang">
+                            @if (Session["Soluonggio"] == null)
+                            {
+                                Session["Soluonggio"] = 0;
+                            }
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-shopping-cart"></i> Giỏ hàng (@Session["Soluonggio"])</button>
+                        </form>
+                    </div>
+                    <div class="pull-right">
+                        <form class="navbar-form" role="search" action="/Default/Timkiem">
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="@ViewBag.timkiem" placeholder="Nội dung tìm kiếm" name="timkiem">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row carousel-holder">
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image"src="~/Images/banner1.png" />
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="~/Images/banner2.png" />
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="~/Images/banner3.png" />
+                                    @*<img class="slide-image" src="http://placehold.it/1150x430" alt="">*@
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <p class="lead">Danh mục sản phẩm</p>
+                        <div class="list-group">
+                            @{Html.RenderAction("CbbDanhmuc", "Cbbox");}
+                        </div>
+                        <p class="lead">Tìm kiếm nâng cao</p>
+                        @if (ViewBag.giatu == null)
+                        {
+                            ViewBag.giatu = "0";
+                        } 
+                        @if (ViewBag.giaden == null)
+                        {
+                            ViewBag.giaden = "0";
+                        }
+                        <script>
+                            function ktragia()
+                            {
+                                var a = document.timkiemnc.giatu.value;
+                                var b = document.timkiemnc.giaden.value;
+                                if (a != 0 && b != 0)
+                                    if (Number(a) > Number(b)) {
+                                        alert("Giá từ phải nhỏ hơn hoặc bằng giá đến");
+                                        return false;
+                                     }
+                                
+                                return true;
+                            }
+                        </script>
+                        <div class="thumbnail col-md-12">
+                            <form role="form" class="col-md-12" name="timkiemnc" action="/Default/Timkiemnangcao">
+                                <div class="form-group">
+                                    <label for="timkiem">Tìm kiếm:</label>
+                                    <input type="text" class="form-control" name="timkiemnc" value="@ViewBag.timkiem" placeholder="Nội dung tìm kiếm" id="timkiem">
+                                    @{Html.RenderAction("CbbDMuc", "Cbbox", new { phanloai = @ViewBag.phanloai });}
+                                    <label for="giatu">Giá từ:</label>
+                                    <input type="text" class="form-control" name="giatu" placeholder="Giá từ" maxlength="9" value="@ViewBag.giatu" id="giatu" onkeypress="return Nhapso(event);" required>
+                                    <label for="giaden">Giá đến:</label>
+                                    <input type="text" class="form-control" name="giaden" placeholder="Giá đến" maxlength="9" value="@ViewBag.giaden" id="giaden" onkeypress="return Nhapso(event);" required>
+                                </div>
+                                <div class="form-group text-right">
+                                    <input type="submit" onclick="return ktragia();" class="btn btn-primary" value="Tìm kiếm">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        @if (TempData["themgiohang"] == "thanhcong")
+                        {
+                            <script>
+                                alert("Thêm giỏ hàng thành công!!!...");
+                            </script>
+                        }
+                        @if (TempData["themgiohang"] == "thatbai")
+                        {
+                            <script>
+                                alert("Thêm giỏ hàng thất bại!!!...");
+                            </script>
+                        }
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <div class="container">
+        <!-- Footer -->
+        <div class="content_bottom">
+            <div style="padding-top: 20px; padding-left: 20px;">
+                <font style="color: #ffd800">CÔNG TY CỔ PHẦN GIÀY PATIN</font>
+                <br />
+                Trụ sở chính: 9/8 Nguyễn Văn Cừ, P.12, Q.5, Tp Hồ Chí Minh
+                <br />
+                ĐT:  (08).39.888.888 - Fax: 08.3888999
+                <br />
+                Giấy chứng nhận ĐKKD số : 0011223344 do Sở KH&ĐT TP.HCM cấp ngày 20/02/2020.
+                <br />
+                Website: <font style="color: #ffd800">www.giaypatin.vn</font>- Email: <font style="color: #ffd800">lienhe@giaypatin.vn</font>
+                <br />
+
+            </div>
+            <div style="float: right; padding: 20px;">
+                Copyright © giaypatin.vn 2020. Developed by TTT SGU
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="~/Content/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+</body>
+</html>

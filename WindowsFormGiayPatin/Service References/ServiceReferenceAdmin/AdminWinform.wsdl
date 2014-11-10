@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AdminWinform" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2445/AdminWinform.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2445/AdminWinform.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2445/AdminWinform.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WedService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdminWinform_FindAllNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DangNhapNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:DangNhapNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DangNhapNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DangNhapNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeleteNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeleteNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateNguoiDung_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNguoiDung" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateNguoiDung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNguoiDungResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindMaSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindMaSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindMaSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindMaSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateSoLuong_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSoLuong" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateSoLuong_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSoLuongResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeleteSoLuong_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSoLuong" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeleteSoLuong_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSoLuongResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeleteSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeleteSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateSanPham_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSanPham" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateSanPham_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllPhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllPhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllPhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllPhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindPhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindPhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertPhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertPhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeletePhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_DeletePhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdatePhanLoai_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePhanLoai" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdatePhanLoai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePhanLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_UpdateHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindChiTietHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindChiTietHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindChiTietHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindChiTietHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertChiTietHoaDonBan_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChiTietHoaDonBan" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertChiTietHoaDonBan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChiTietHoaDonBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllHoaDonNhap_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllHoaDonNhap" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindAllHoaDonNhap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllHoaDonNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindHoaDonNhap_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonNhap" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindHoaDonNhap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindHoaDonNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertHoaDonNhap_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHoaDonNhap" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertHoaDonNhap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHoaDonNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindChiTietHoaDonNhap_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindChiTietHoaDonNhap" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_FindChiTietHoaDonNhap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindChiTietHoaDonNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertChiTietHoaDonNhap_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChiTietHoaDonNhap" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_InsertChiTietHoaDonNhap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertChiTietHoaDonNhapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_ThongKeTheoNgay_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThongKeTheoNgay" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_ThongKeTheoNgay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThongKeTheoNgayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_ThongKeTheoThang_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThongKeTheoThang" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_ThongKeTheoThang_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThongKeTheoThangResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_ThongKeTheoNam_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThongKeTheoNam" />
+  </wsdl:message>
+  <wsdl:message name="IAdminWinform_ThongKeTheoNam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThongKeTheoNamResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAdminWinform">
+    <wsdl:operation name="FindAllNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindAllNguoiDung" message="tns:IAdminWinform_FindAllNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindAllNguoiDungResponse" message="tns:IAdminWinform_FindAllNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindNguoiDung" message="tns:IAdminWinform_FindNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindNguoiDungResponse" message="tns:IAdminWinform_FindNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DangNhapNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/DangNhapNguoiDung" message="tns:IAdminWinform_DangNhapNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/DangNhapNguoiDungResponse" message="tns:IAdminWinform_DangNhapNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/InsertNguoiDung" message="tns:IAdminWinform_InsertNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/InsertNguoiDungResponse" message="tns:IAdminWinform_InsertNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/DeleteNguoiDung" message="tns:IAdminWinform_DeleteNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/DeleteNguoiDungResponse" message="tns:IAdminWinform_DeleteNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNguoiDung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/UpdateNguoiDung" message="tns:IAdminWinform_UpdateNguoiDung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/UpdateNguoiDungResponse" message="tns:IAdminWinform_UpdateNguoiDung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindAllSanPham" message="tns:IAdminWinform_FindAllSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindAllSanPhamResponse" message="tns:IAdminWinform_FindAllSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindSanPham" message="tns:IAdminWinform_FindSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindSanPhamResponse" message="tns:IAdminWinform_FindSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindMaSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindMaSanPham" message="tns:IAdminWinform_FindMaSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindMaSanPhamResponse" message="tns:IAdminWinform_FindMaSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSoLuong">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/UpdateSoLuong" message="tns:IAdminWinform_UpdateSoLuong_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/UpdateSoLuongResponse" message="tns:IAdminWinform_UpdateSoLuong_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSoLuong">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/DeleteSoLuong" message="tns:IAdminWinform_DeleteSoLuong_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/DeleteSoLuongResponse" message="tns:IAdminWinform_DeleteSoLuong_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/InsertSanPham" message="tns:IAdminWinform_InsertSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/InsertSanPhamResponse" message="tns:IAdminWinform_InsertSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/DeleteSanPham" message="tns:IAdminWinform_DeleteSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/DeleteSanPhamResponse" message="tns:IAdminWinform_DeleteSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSanPham">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/UpdateSanPham" message="tns:IAdminWinform_UpdateSanPham_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/UpdateSanPhamResponse" message="tns:IAdminWinform_UpdateSanPham_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllPhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindAllPhanLoai" message="tns:IAdminWinform_FindAllPhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindAllPhanLoaiResponse" message="tns:IAdminWinform_FindAllPhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindPhanLoai" message="tns:IAdminWinform_FindPhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindPhanLoaiResponse" message="tns:IAdminWinform_FindPhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/InsertPhanLoai" message="tns:IAdminWinform_InsertPhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/InsertPhanLoaiResponse" message="tns:IAdminWinform_InsertPhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/DeletePhanLoai" message="tns:IAdminWinform_DeletePhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/DeletePhanLoaiResponse" message="tns:IAdminWinform_DeletePhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePhanLoai">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/UpdatePhanLoai" message="tns:IAdminWinform_UpdatePhanLoai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/UpdatePhanLoaiResponse" message="tns:IAdminWinform_UpdatePhanLoai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindAllHoaDonBan" message="tns:IAdminWinform_FindAllHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindAllHoaDonBanResponse" message="tns:IAdminWinform_FindAllHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindHoaDonBan" message="tns:IAdminWinform_FindHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindHoaDonBanResponse" message="tns:IAdminWinform_FindHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/InsertHoaDonBan" message="tns:IAdminWinform_InsertHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/InsertHoaDonBanResponse" message="tns:IAdminWinform_InsertHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/UpdateHoaDonBan" message="tns:IAdminWinform_UpdateHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/UpdateHoaDonBanResponse" message="tns:IAdminWinform_UpdateHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindChiTietHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindChiTietHoaDonBan" message="tns:IAdminWinform_FindChiTietHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindChiTietHoaDonBanResponse" message="tns:IAdminWinform_FindChiTietHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertChiTietHoaDonBan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/InsertChiTietHoaDonBan" message="tns:IAdminWinform_InsertChiTietHoaDonBan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/InsertChiTietHoaDonBanResponse" message="tns:IAdminWinform_InsertChiTietHoaDonBan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllHoaDonNhap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindAllHoaDonNhap" message="tns:IAdminWinform_FindAllHoaDonNhap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindAllHoaDonNhapResponse" message="tns:IAdminWinform_FindAllHoaDonNhap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonNhap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindHoaDonNhap" message="tns:IAdminWinform_FindHoaDonNhap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindHoaDonNhapResponse" message="tns:IAdminWinform_FindHoaDonNhap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoaDonNhap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/InsertHoaDonNhap" message="tns:IAdminWinform_InsertHoaDonNhap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/InsertHoaDonNhapResponse" message="tns:IAdminWinform_InsertHoaDonNhap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindChiTietHoaDonNhap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/FindChiTietHoaDonNhap" message="tns:IAdminWinform_FindChiTietHoaDonNhap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/FindChiTietHoaDonNhapResponse" message="tns:IAdminWinform_FindChiTietHoaDonNhap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertChiTietHoaDonNhap">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/InsertChiTietHoaDonNhap" message="tns:IAdminWinform_InsertChiTietHoaDonNhap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/InsertChiTietHoaDonNhapResponse" message="tns:IAdminWinform_InsertChiTietHoaDonNhap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThongKeTheoNgay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/ThongKeTheoNgay" message="tns:IAdminWinform_ThongKeTheoNgay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/ThongKeTheoNgayResponse" message="tns:IAdminWinform_ThongKeTheoNgay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThongKeTheoThang">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/ThongKeTheoThang" message="tns:IAdminWinform_ThongKeTheoThang_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/ThongKeTheoThangResponse" message="tns:IAdminWinform_ThongKeTheoThang_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThongKeTheoNam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminWinform/ThongKeTheoNam" message="tns:IAdminWinform_ThongKeTheoNam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminWinform/ThongKeTheoNamResponse" message="tns:IAdminWinform_ThongKeTheoNam_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAdminWinform" type="tns:IAdminWinform">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindAllNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindAllNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DangNhapNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/DangNhapNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/InsertNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/DeleteNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNguoiDung">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/UpdateNguoiDung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllSanPham">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindAllSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSanPham">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindMaSanPham">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindMaSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSoLuong">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/UpdateSoLuong" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSoLuong">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/DeleteSoLuong" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSanPham">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/InsertSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSanPham">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/DeleteSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSanPham">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/UpdateSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllPhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindAllPhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindPhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/InsertPhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/DeletePhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePhanLoai">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/UpdatePhanLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindAllHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/InsertHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/UpdateHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindChiTietHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindChiTietHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertChiTietHoaDonBan">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/InsertChiTietHoaDonBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllHoaDonNhap">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindAllHoaDonNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindHoaDonNhap">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindHoaDonNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHoaDonNhap">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/InsertHoaDonNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindChiTietHoaDonNhap">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/FindChiTietHoaDonNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertChiTietHoaDonNhap">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/InsertChiTietHoaDonNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThongKeTheoNgay">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/ThongKeTheoNgay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThongKeTheoThang">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/ThongKeTheoThang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThongKeTheoNam">
+      <soap:operation soapAction="http://tempuri.org/IAdminWinform/ThongKeTheoNam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminWinform">
+    <wsdl:port name="BasicHttpBinding_IAdminWinform" binding="tns:BasicHttpBinding_IAdminWinform">
+      <soap:address location="http://localhost:2445/AdminWinform.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

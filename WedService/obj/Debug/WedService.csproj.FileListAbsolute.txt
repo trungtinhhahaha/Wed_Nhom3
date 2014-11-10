@@ -1,0 +1,10 @@
+E:\Wed Service\WebGiayPatin\WedService\bin\WedService.dll.config
+E:\Wed Service\WebGiayPatin\WedService\bin\WedService.dll
+E:\Wed Service\WebGiayPatin\WedService\bin\WedService.pdb
+E:\Wed Service\WebGiayPatin\WedService\bin\EntityFramework.dll
+E:\Wed Service\WebGiayPatin\WedService\bin\EntityFramework.SqlServer.dll
+E:\Wed Service\WebGiayPatin\WedService\bin\EntityFramework.xml
+E:\Wed Service\WebGiayPatin\WedService\bin\EntityFramework.SqlServer.xml
+E:\Wed Service\WebGiayPatin\WedService\obj\Debug\WedService.dll
+E:\Wed Service\WebGiayPatin\WedService\obj\Debug\WedService.pdb
+E:\Wed Service\WebGiayPatin\WedService\obj\Debug\WedService.csprojResolveAssemblyReference.cache

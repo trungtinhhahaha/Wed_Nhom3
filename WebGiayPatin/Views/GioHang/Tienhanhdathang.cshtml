@@ -1,0 +1,46 @@
+﻿@model WebGiayPatin.ServiceReferenceUser.NguoiDung
+@{
+    ViewBag.Title = "Tiến Hành Đặt Hàng | GIAYPATIN";
+    Layout = "~/Views/Shared/Default.cshtml";
+}
+
+<script>
+    function Nhapso(e) {
+        if ((e.charCode >= 48 && e.charCode <= 58) ||
+            (e.charCode == 0))
+            return true;
+        return false;
+    }
+</script>
+<p class="lead"><a href="/GioHang/Xemgiohang">Xem giỏ hàng </a> | Tiến hành đặt hàng</p>
+<div class="thumbnail col-md-12">
+    <form class="form-horizontal col-md-6 col-lg-offset-3" action="/GioHang/Dathang" method="post" role="form">
+        <p class="lead">Thông tin đặt hàng</p>
+        <div class="form-group">
+            <label for="hoten" class="col-sm-4 control-label">Họ tên:</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="hoten" value="@Model.HoTen" name="hoten" placeholder="Họ và tên" required>
+            </div>
+            <label class="col-sm-1 control-label">(<span style="color: red">*</span>)</label>
+        </div>
+        <div class="form-group">
+            <label for="sdt" class="col-sm-4 control-label">Số điện thoại:</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="sdt" value="@Model.SDT" placeholder="Số điện thoại" onkeypress="return Nhapso(event);" name="sdt" required>
+            </div>
+            <label class="col-sm-1 control-label">(<span style="color: red">*</span>)</label>
+        </div>
+        <div class="form-group">
+            <label for="diachi" class="col-sm-4 control-label">Địa chỉ:</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="diachi" value="@Model.DiaChi" placeholder="Địa chỉ" name="diachi" required>
+            </div>
+            <label class="col-sm-1 control-label">(<span style="color: red">*</span>)</label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-7 text-right">
+                <button type="submit" onclick="return Ktra();" class="btn btn-primary">Tiếp tục</button>
+            </div>
+        </div>
+    </form>
+</div>

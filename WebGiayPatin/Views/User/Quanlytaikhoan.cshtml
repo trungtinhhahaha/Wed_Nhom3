@@ -1,0 +1,57 @@
+﻿@model WebGiayPatin.ServiceReferenceUser.NguoiDung
+@{
+    ViewBag.Title = "Quản Lý Tài Khoản | GIAYPATIN";
+    Layout = "~/Views/Shared/Default.cshtml";
+}
+
+@if(TempData["thongbao"] == "thanhcong")
+{
+    <script>alert("Sửa thành công!!!...");</script>
+}
+<p class="lead">Quản Lý Tài Khoản</p>
+<div class="thumbnail col-md-12">
+    <div class="thumbnail col-md-6">
+        <p class="lead">Thông tin đăng nhập</p>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Tên đăng nhập:</label>
+            <p class="col-sm-8 control-label">@Model.TenDangNhap</p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Mật khẩu:</label>
+            <p class="col-sm-8 control-label">******</p>
+        </div>
+        <div class="form-group text-right">
+            <a href="/User/Thongtindangnhap"><label class="col-sm-12 control-label">Chỉnh sửa</label></a>
+        </div>
+    </div>
+    <div class="thumbnail col-md-6 pull-right">
+        <p class="lead">Thông tin cá nhân</p>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Họ tên:</label>
+            <p class="col-sm-8 control-label">@Model.HoTen</p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Ngày sinh:</label>
+            <p class="col-sm-8 control-label">@Model.NgaySinh.ToString("dd/MM/yyyy")</p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Giới tính:</label>
+            <p class="col-sm-8 control-label">@Model.GioiTinh</p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Email:</label>
+            <p class="col-sm-8 control-label">@Model.Email</p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Số điện thoại:</label>
+            <p class="col-sm-8 control-label">@Model.SDT</p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Địa chỉ:</label>
+            <p class="col-sm-8 control-label">@Model.DiaChi</p>
+        </div>
+        <div class="form-group text-right">
+            <a href="/User/Thongtincanhan"><label class="col-sm-12 control-label">Chỉnh sửa</label></a>
+        </div>
+    </div>
+</div>
